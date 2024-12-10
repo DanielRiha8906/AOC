@@ -28,11 +28,9 @@ def validate(report):
     return ((is_increasing(report) or is_decreasing(report)) and range_of_increase(report))
 
 def find_problematic_element(full_list):
-    index = 0
-    for element in full_list:
+    for element in range(len(full_list)):
         temp_list = full_list.copy()
-        temp_list.pop(index)
-        index += 1
+        temp_list.pop(element)
         if validate(temp_list):
             return element
     return None
